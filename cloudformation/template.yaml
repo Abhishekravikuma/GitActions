@@ -533,3 +533,8 @@ Outputs:
   GithubIAMRoleArn:
     Description: IAM role for GitHub
     Value: !GetAtt GitHubIAMRole.Arn
+option_settings:
+    aws:autoscaling:launchconfiguration:
+    DisableIMDSv1: true
+    RootVolumeType: gp3
+
