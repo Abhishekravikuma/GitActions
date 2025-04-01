@@ -33,6 +33,13 @@ jobs:
         working-directory: ${{ env.applicationfolder }}
         run: $GITHUB_WORKSPACE/.github/scripts/build.sh
 
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+           aws configure set aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+           aws configure set aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+           aws configure set default.region: ${{ env.AWS_REGION }}
+           aws-region: ${{ env.AWS_REGION }}
+        
       - name: Upload Artifact to s3
         working-directory: ${{ env.applicationfolder }}/target
         run: aws s3 cp *.war s3://${{ env.S3BUCKET }}/ --region ${{ env.AWS_REGION }}
@@ -46,14 +53,6 @@ jobs:
       contents: read
     steps:
     - uses: actions/checkout@v2
-    - uses: aws-actions/configure-aws-credentials@v1
-      with:
-        #role-to-assume: ${{ secrets.IAMROLE_GITHUB }}
-        #role-session-name: GitHub-Action-Role
-        aws configure set aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws configure set aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws configure set default.region: ${{ env.AWS_REGION }}
-        aws-region: ${{ env.AWS_REGION }}
     - run: |
         echo "Deploying branch ${{ env.GITHUB_REF }} to ${{ github.event.inputs.environment }}"
         commit_hash=`git rev-parse HEAD`
