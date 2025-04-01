@@ -38,15 +38,8 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ env.AWS_REGION }}
+          aws-region: ${{ env.AWS_REGION }}   
           
-      #- uses: aws-actions/configure-aws-credentials@v1
-       # with:
-        #   aws configure set aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-         #  aws configure set aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          # aws configure set default.region: ${{ env.AWS_REGION }}
-           #aws-region: ${{ env.AWS_REGION }}
-        
       - name: Upload Artifact to s3
         working-directory: ${{ env.applicationfolder }}/target
         run: aws s3 cp *.war s3://${{ env.S3BUCKET }}/ --region ${{ env.AWS_REGION }}
