@@ -5,7 +5,7 @@ on:
 
 env:
   applicationfolder: spring-boot-hello-world-example
-  AWS_REGION: ap-south-1
+  AWS_REGION: us-east-1
   S3BUCKET:  myawsbucket
 
 
@@ -62,7 +62,7 @@ on:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ap-south-1  # Replace with your desired AWS region
+        aws-region: us-east-1  # Replace with your desired AWS region
 
     # Add your deployment steps here
     - name: Deploy to S3
