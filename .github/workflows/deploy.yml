@@ -6,7 +6,7 @@ on:
 env:
   applicationfolder: spring-boot-hello-world-example
   AWS_REGION: us-east-1
-  #S3BUCKET: mys3bucket 
+  S3BUCKET: arn:aws:s3:::cf-templates--t2pii8fplel8-us-east-1 
 
 
 jobs:
@@ -33,9 +33,9 @@ jobs:
         working-directory: ${{ env.applicationfolder }}
         run: $GITHUB_WORKSPACE/.github/scripts/build.sh
 
-      #- name: Upload Artifact to s3
-       # working-directory: ${{ env.applicationfolder }}/target
-        #run: aws s3 cp *.war s3://${{ env.S3BUCKET }}/ --region ${{ env.AWS_REGION }}
+      - name: Upload Artifact to s3
+        working-directory: ${{ env.applicationfolder }}/target
+        run: aws s3 cp *.war s3://${{ env.S3BUCKET }}/ --region ${{ env.AWS_REGION }}
         
   deploy:
     needs: build
