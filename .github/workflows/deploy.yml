@@ -43,14 +43,8 @@ jobs:
         working-directory: ${{ env.applicationfolder }}/target
         run: aws s3 cp *.war s3://${{ env.S3BUCKET }}/
 
-name: Deploy
-
-on:
-  push:
-    branches:
-      - main
-
   deploy:
+    name: Deploy
     runs-on: ubuntu-latest
 
     steps:
