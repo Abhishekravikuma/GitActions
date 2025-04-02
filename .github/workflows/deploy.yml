@@ -38,6 +38,8 @@ jobs:
             exit 1;
           fi
 
+          #testing
+
       - name: Upload Artifact to S3
         working-directory: ${{ env.applicationfolder }}/target
         run: aws s3 cp *.war s3://${{ env.S3BUCKET }}/ --region ${{ env.AWS_REGION }}
