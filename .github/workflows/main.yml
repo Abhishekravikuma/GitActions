@@ -22,7 +22,11 @@ jobs:
           java-version: '8'
 
       - name: Build with Maven
-        run: mvn -B package --file ${{ env.applicationfolder }}/pom.xml
+        working-directory: ${{ env.applicationfolder }}
+        run: mvn -B package --file pom.xml
+  
+      #- name: Build with Maven
+        #run: mvn -B package --file ${{ env.applicationfolder }}/pom.xml
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
