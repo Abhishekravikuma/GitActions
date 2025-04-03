@@ -31,13 +31,14 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
-      - name: Check target directory
-        run: |
-          if [ ! -d "${{ env.applicationfolder }}/target" ]; then
-            echo "Target directory does not exist";
-            exit 1;
-          fi
-
+      #- name: Check target directory
+       # run: |
+        #  if [ ! -d "${{ env.applicationfolder }}/target" ]; then
+         #   echo "Target directory does not exist";
+          #  exit 1;
+          #fi
+      - name: Ensure target directory exists
+        run: mkdir -p spring-boot-hello-world-example/target
           #testing
 
       - name: Upload Artifact to S3
