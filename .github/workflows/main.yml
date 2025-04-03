@@ -58,4 +58,4 @@ jobs:
        - name: Deploy to S3
          working-directory: ${{ env.applicationfolder }}/target
          run: aws s3 cp *.war s3://${{ env.S3BUCKET }}/ --region ${{ env.AWS_REGION }}
-              sync . s3://my-unique-bucketfhfdfplel8 --exclude '.index/*'
+               s3://my-unique-bucketfhfdfplel8 --exclude '.index/*'
