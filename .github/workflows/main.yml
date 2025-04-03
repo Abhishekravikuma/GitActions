@@ -55,6 +55,7 @@ jobs:
          run: mkdir -p spring-boot-hello-world-example/target
           #testing
 
-       - name: Upload Artifact to S3
+       - name: Deploy to S3
          working-directory: ${{ env.applicationfolder }}/target
          run: aws s3 cp *.war s3://${{ env.S3BUCKET }}/ --region ${{ env.AWS_REGION }}
+              aws s3 sync . s3://my-unique-bucketfhfdfplel8 --exclude '.git/*' --exclude '.github/*'
