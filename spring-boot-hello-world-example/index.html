@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transform POM XML</title>
+</head>
+<body>
+    <script>
+        // Load the XML file
+        fetch('pom.xml')
+            .then(response => response.text())
+            .then(xmlText => {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlText, "application/xml");
+
+                // Load the XSL file
+                fetch('pom.xsl')
+                    .then(response => response.text())
+                    .then(xslText => {
+                        const xslDoc = parser.parseFromString(xslText, "application/xml");
+
+                        // Apply the XSLT transformation
+                        const xsltProcessor = new XSLTProcessor();
+                        xsltProcessor.importStylesheet(xslDoc);
+                        const resultDocument = xsltProcessor.transformToDocument(xmlDoc);
+
+                        // Display the result
+                        const serializer = new XMLSerializer();
+                        document.body.innerHTML = serializer.serializeToString(resultDocument);
+                    });
+            });
+    </script>
+</body>
+</html>
