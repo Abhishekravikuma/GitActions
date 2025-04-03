@@ -540,4 +540,3 @@ BlockDeviceMappings:
 MetadataOptions:
           HttpTokens: required  # Enforces IMDSv2
           HttpPutResponseHopLimit: 2
-
