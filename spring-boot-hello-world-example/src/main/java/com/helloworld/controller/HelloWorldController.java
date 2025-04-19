@@ -7,11 +7,11 @@ public class HelloWorldController
 @RequestMapping("/")
 public String hello() 
 {
-  return    "<title>Welcome to My Website!</title>
+  return    "<title>Spring Boot Webpage</title>
 </head>
 <body>
     
-   <h1> Welcome to Spring Boot!</h1> 
+   <h1>Welcome to Spring Boot!</h1> 
     <p>This is Abhishek's Srping Boot webpage</p>"
       
 }
