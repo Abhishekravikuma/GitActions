@@ -68,9 +68,6 @@ To deploy the CloudFormation template, complete the following steps:
            - Service role for CodeDeploy
            - Security groups for ALB and Amazon EC2
 
-## GitHub configuration and Testing
-
-Please follow the [blog post](https://aws.amazon.com/blogs/devops/integrating-with-github-actions-ci-cd-pipeline-to-deploy-a-web-app-to-amazon-ec2/) to setup GitHub actions and test the CICD flow.
 
 
 ## Clean up
