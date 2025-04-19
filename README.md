@@ -4,7 +4,6 @@ Many Organizations adopt [DevOps Practices](https://aws.amazon.com/devops/what-i
 
 In this post, you will use [GitHub Actions](https://help.github.com/en/actions) to create a CI/CD workflow and [AWS CodeDeploy](https://aws.amazon.com/codedeploy/) to deploy a sample Java SpringBoot application to Amazon Elastic Compute Cloud ([Amazon EC2](https://docs.aws.amazon.com/ec2/index.html?nc2=h_ql_doc_ec2#amazon-ec2)) instances in an Autoscaling group.
 
-
 GitHub Actions is a feature on GitHub’s popular development platform that helps you automate your software development workflows in the same place that you store code and collaborate on pull requests and issues. You can write individual tasks called actions, and then combine them to create a custom workflow. Workflows are custom automated processes that you can set up in your repository to build, test, package, release, or deploy any code project on GitHub.
 
 AWS CodeDeploy is a deployment service that automates application deployments to Amazon EC2 instances, on-premises instances, serverless AWS Lambda functions, or Amazon Elastic Container Service (Amazon ECS) services.
@@ -42,23 +41,6 @@ The following steps provide a high-level overview of the walkthrough:
   5.	Integrate CodeDeploy with GitHub
   6.	Trigger the GitHub Action to build and deploy the code.
   7.	Verify the deployment.
-
-## Download the source code
-
-Clone this repository aws-codedeploy-github-actions-deployment 
-
-    git clone https://github.com/aws-samples/aws-codedeploy-github-actions-deployment.git
-
-Create an empty repository in your personal GitHub account.
-
-    git clone https://github.com/<username>/<repoName>.git
-    
-Copy the code. We need contents from the hidden .github folder for the GitHub actions to work.
-
-    cp -r aws-codedeploy-github-actions-deployment/. <new repository>
-
-    e.g. GitActionsDeploytoAWS
-
 ## Deploying the CloudFormation template
 To deploy the CloudFormation template, complete the following steps:
 
@@ -90,6 +72,7 @@ To deploy the CloudFormation template, complete the following steps:
 
 Please follow the [blog post](https://aws.amazon.com/blogs/devops/integrating-with-github-actions-ci-cd-pipeline-to-deploy-a-web-app-to-amazon-ec2/) to setup GitHub actions and test the CICD flow.
 
+
 ## Clean up
 
 To avoid incurring future changes, you should clean up the resources that you created.
@@ -100,12 +83,3 @@ To avoid incurring future changes, you should clean up the resources that you cr
         1. Go to the repository settings on GitHub Page.
         2. Select Secrets under Actions.
         3. Select IAMROLE_GITHUB, and delete it.
-
-
-## Security
-
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
-
-## License
-
-This library is licensed under the MIT-0 License. See the LICENSE file.
