@@ -24,3 +24,5 @@ hooks:
     - location: aws/scripts/validate-service.sh
       timeout: 300
       runas: root
+
+      
