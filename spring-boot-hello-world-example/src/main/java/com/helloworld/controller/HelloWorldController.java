@@ -7,7 +7,6 @@ public class HelloWorldController
 @RequestMapping("/")
 public String hello() 
 {
-#"<h1> Congratulations. You have successfully deployed the sample Spring Boot Application. </h1>";
   return    "<title>Welcome to My Website!</title>
 </head>
 <body>
